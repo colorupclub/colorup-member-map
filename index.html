@@ -29,45 +29,7 @@
     min-height: 100vh;
   }
 
-  /* NAV */
-  .nav {
-    background: #fff;
-    border-bottom: 1px solid var(--border);
-    padding: 0 40px;
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    height: 56px;
-  }
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    font-weight: 900;
-    color: var(--maroon);
-    flex-shrink: 0;
-  }
-  .nav-links { display: flex; gap: 4px; flex: 1; }
-  .nav-link {
-    font-size: 13px;
-    color: var(--text-muted);
-    padding: 8px 12px;
-    border-radius: 6px;
-    text-decoration: none;
-  }
-  .nav-link.active { color: var(--maroon); font-weight: 500; background: #F2EAEA; }
-
-  /* PAGE HEADER */
-  .page-wrap { max-width: 1280px; margin: 0 auto; padding: 28px 40px 48px; }
-
-  .page-header { margin-bottom: 18px; }
-  .page-eyebrow {
-    font-size: 10px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
-    color: var(--maroon); margin-bottom: 6px;
-  }
-  .page-title {
-    font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 900; margin-bottom: 4px;
-  }
-  .page-sub { font-size: 14px; color: var(--text-muted); max-width: 620px; line-height: 1.5; }
+  .page-wrap { max-width: 1280px; margin: 0 auto; padding: 16px; }
 
   .map-container { width: 100%; }
   #map {
@@ -117,22 +79,7 @@
 </head>
 <body>
 
-<nav class="nav">
-  <div class="nav-logo">Color Up Club</div>
-  <div class="nav-links">
-    <a class="nav-link" href="#">Home</a>
-    <a class="nav-link" href="#">Events</a>
-    <a class="nav-link active" href="#">Member Map</a>
-  </div>
-</nav>
-
 <div class="page-wrap">
-
-  <div class="page-header">
-    <div class="page-eyebrow">Red Members &amp; Above</div>
-    <div class="page-title">Member Map</div>
-    <div class="page-sub">Find other Color Up Club members near you. Opt in from your profile settings to appear on the map — off by default, and only your general area and display name are ever shown.</div>
-  </div>
 
   <div class="legend" id="legend-members">
     <div class="legend-item"><div class="legend-dot" style="background:#C0392B;"></div>Red member</div>
