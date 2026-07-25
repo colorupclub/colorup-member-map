@@ -142,18 +142,28 @@
       className: '',
       iconSize: L.point(28, 28)
     });
+    // Both buttons point at the real Circle profile page — there's no
+    // confirmed separate "compose a message" URL, but the Message button
+    // on that profile page does the same job in one extra click.
+    var profileHref = m.profileUrl ? escapeHtml(m.profileUrl) : '#';
     return L.marker([m.lat, m.lng], { icon: icon }).bindPopup(
       '<div class="popup-card">' +
         '<div class="popup-top">' +
-          '<div class="popup-name">' + m.name + '</div>' +
+          '<div class="popup-name">' + escapeHtml(m.name) + '</div>' +
           '<div class="popup-avatar" style="background:' + tierColor[m.tier] + '">' + initials + '</div>' +
         '</div>' +
         '<div class="popup-actions">' +
-          '<a class="popup-btn" href="#">View profile</a>' +
-          '<a class="popup-btn" href="#">Message</a>' +
+          '<a class="popup-btn" href="' + profileHref + '" target="_blank" rel="noopener">View profile</a>' +
+          '<a class="popup-btn" href="' + profileHref + '" target="_blank" rel="noopener">Message</a>' +
         '</div>' +
       '</div>'
     );
+  }
+
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
   }
 
   var memberLayer = L.markerClusterGroup({
@@ -189,7 +199,8 @@
             name: r.display_name,
             tier: (r.tier || 'red').toLowerCase(),
             lat: parseFloat(r.lat),
-            lng: parseFloat(r.lng)
+            lng: parseFloat(r.lng),
+            profileUrl: r.profile_url || ''
           };
         });
         addMembers(rows.length ? rows : sampleMembers);
