@@ -84,6 +84,7 @@
   <div class="legend" id="legend-members">
     <div class="legend-item"><div class="legend-dot" style="background:#C0392B;"></div>Red member</div>
     <div class="legend-item"><div class="legend-dot" style="background:#27AE60;"></div>Green member</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#1a1a1a;"></div>Black member</div>
   </div>
 
   <div class="map-container">
@@ -127,7 +128,7 @@
     { name: "MidnightMarge", tier: "green", lat: 27.95, lng: -82.46 }
   ];
 
-  var tierColor = { green: "#27AE60", red: "#C0392B" };
+  var tierColor = { green: "#27AE60", red: "#C0392B", black: "#1a1a1a" };
 
   var map = L.map('map', { zoomControl: true }).setView([39.5, -98.35], 4);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
